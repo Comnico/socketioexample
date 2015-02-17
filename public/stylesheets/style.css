@@ -1,0 +1,90 @@
+body {
+  background-color: #0e74af;
+  margin: 20px;
+}
+
+.list {
+  background: #e3e3e3;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-height: 100%;
+  padding: 4px 8px 3px;
+  position: relative;
+  -webkit-transform: translate3d(0, 0, 0);
+  width: 100%;
+}
+
+.list-header {
+  -moz-box-flex: 0;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  flex: 0 0 auto;
+  padding: 3px 26px 5px 6px;
+  position: relative;
+  min-height: 19px;
+}
+.list-header h2 {
+  display: inline;
+  font-size: 15px;
+  line-height: 18px;
+  margin: 0;
+  min-height: 19px;
+  min-width: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.task-card {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  max-width: 100%;
+  min-height: 20px;
+  position: relative;
+  z-index: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  padding: 5px;
+}
+.task-card:hover {
+  background-color: #efefef;
+  cursor: pointer;
+}
+.task-card:last-child {
+  margin-bottom: 20px;
+}
+.task-card .card-body {
+  width: 80%;
+}
+.task-card .card-body textarea {
+  border: 0;
+  width: 100%;
+  height: 70px;
+  background-color: transparent;
+}
+.task-card .card-body textarea:focus {
+  background-color: #fff;
+}
+.task-card .card-actions {
+  text-align: right;
+  width: 20%;
+}
+.task-card .card-actions .btn-link {
+  color: #999;
+  padding: 3px 5px;
+}
+.task-card .card-actions .btn-link:hover {
+  color: #666;
+}
+.task-card .card-id {
+  position: absolute;
+  right: 5px;
+  bottom: 2px;
+  color: #999;
+}

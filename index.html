@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Socket.IO Test</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/style.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/testfont.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body ng-app="app">
+    <div class="row" ng-controller="cardCtrl">
+        <div class="col-sm-3">
+            <div class="list">
+                <div class="list-header">
+                    <h2>Doing</h2>
+                </div>
+                <div class="task-card" task-card ng-repeat="card in cards | filter:{status:1}" id="{{::card.id}}">
+                    <div class="card-body">
+                        <textarea ng-model="card.name" ng-change="updateCard(card)" class="card-name" ng-bind="card.name"></textarea>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-link" ng-click="card.status=2;updateCard(card)"><i class="tf tf-right"></i>
+                        </button>
+                        <div class="card-id" ng-bind="card.id"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="list">
+                <div class="list-header">
+                    <h2>Done</h2>
+                </div>
+                <div class="task-card" task-card ng-repeat="card in cards | filter:{status:2}" id="{{::card.id}}">
+                    <div class="card-body">
+                        <textarea ng-model="card.name" ng-change="updateCard(card)" class="card-name" ng-bind="card.name"></textarea>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-link" ng-click="card.status=1;updateCard(card)"><i class="tf tf-left"></i>
+                        </button>
+                        <div class="card-id" ng-bind="card.id"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="javascripts/socket.io.js"></script>
+    <script>
+    var socket = io();
+    </script>
+    <script src="//code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+    <script src="javascripts/main.js"></script>
+
+</body>
+
+</html>

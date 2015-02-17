@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+var debug = require('debug')('stormy-caverns-4093');
+var app = require('../app');
+
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+});
+
+// SocketIOの読み込み
+var io = require('socket.io').listen(server);
+// 更新を通知
+io.sockets.on('connection', function(socket) {
+  socket.on('updateCard', function(data) {
+    console.log(data);
+    socket.broadcast.emit('onCardUpdated', data);
+  });
+});

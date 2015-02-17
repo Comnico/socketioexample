@@ -1,0 +1,39 @@
+<% extend 'layout.ect' %>
+<div class="row" ng-controller="cardCtrl">
+    <div class="col-sm-3">
+        <div class="list">
+            <div class="list-header">
+                <h2>Doing</h2>
+            </div>
+            <div class="task-card" task-card ng-repeat="card in cards | filter:{status:1}" id="{{::card.id}}">
+                <div class="card-body">
+                    <textarea ng-model="card.name" ng-change="updateCard(card)" class="card-name" ng-bind="card.name"></textarea>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-link" ng-click="card.status=2;updateCard(card)" analytics-on="click" analytics-event="Done" value="Done" analytics-category="ChangeStatus"><i class="tf tf-right"></i>
+                    </button>
+                    <div class="card-id" ng-bind="card.id"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="list">
+            <div class="list-header">
+                <h2>Done</h2>
+            </div>
+            <div class="task-card" task-card ng-repeat="card in cards | filter:{status:2}" id="{{::card.id}}">
+                <div class="card-body">
+                    <textarea ng-model="card.name" ng-change="updateCard(card)" class="card-name" ng-bind="card.name"></textarea>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-link" ng-click="card.status=1;updateCard(card)" analytics-on="click" analytics-event="Doing" value="Doing" analytics-category="ChangeStatus"><i class="tf tf-left"></i>
+                    </button>
+                    <div class="card-id" ng-bind="card.id"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
